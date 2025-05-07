@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src='https://www.google.com/recaptcha/enterprise.js?render='></script>
+  <script>
+    function onClick(e) {
+      e.preventDefault();
+      grecaptcha.enterprise.ready(function () {
+        grecaptcha.enterprise.execute('', { action: 'LOGIN' }).then(function (token) {
+          console.log(token);
+          // Add your logic to submit to your backend server here.
+        });
+      });
+    }
+  </script>
+  <title>Generic HTML Page</title>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Website</h1>
+  </header>
+  <main>
+    <p>This is a generic HTML page.</p>
+    <button onclick="onClick(event)">Submit</button>
+  </main>
+  <footer>
+    <p>&copy; 2023 My Website</p>
+  </footer>
+</body>
+</html>
